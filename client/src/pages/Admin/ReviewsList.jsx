@@ -34,8 +34,8 @@ const ReviewsList = () => {
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
-      if (willDelete) {
-        dispatch(deleteReviewByAdmin(data));
+      {
+        willDelete && dispatch(deleteReviewByAdmin(data));
       }
     });
   };

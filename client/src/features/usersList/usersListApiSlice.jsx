@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../../utils/baseUrl";
 
 // Get all users by admin
 export const getAllUsersByAdmin = createAsyncThunk(
@@ -7,7 +8,7 @@ export const getAllUsersByAdmin = createAsyncThunk(
     async () => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/api/v1/user/admin/get-all-users`,
+          `${baseUrl}/user/admin/get-all-users`,
           {
             withCredentials: true,
           }
@@ -27,7 +28,7 @@ export const getSingleUserByAdmin = createAsyncThunk(
     async (id) => {
       try {
         const response = await axios.get(
-          `http://localhost:4040/api/v1/user/admin/get-single-user/${id}`,
+          `${baseUrl}/user/admin/get-single-user/${id}`,
           {
             withCredentials: true,
           }
@@ -47,7 +48,7 @@ export const updateUserByAdmin = createAsyncThunk(
     async (data) => {
       try {
         const response = await axios.put(
-          `http://localhost:4040/api/v1/user/admin/update-user-role/${data.id}`, {
+          `${baseUrl}/user/admin/update-user-role/${data.id}`, {
             name : data.name,
             email : data.email,
             role : data.role,
@@ -71,7 +72,7 @@ export const deleteUserByAdmin = createAsyncThunk(
     async (id) => {
       try {
         const response = await axios.delete(
-          `http://localhost:4040/api/v1/user/admin/remove-user-by-admin/${id}`,
+          `${baseUrl}/user/admin/remove-user-by-admin/${id}`,
           {
             withCredentials: true,
           }

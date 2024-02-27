@@ -1,11 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../../utils/baseUrl";
 
 // Login user
 export const loginUser = createAsyncThunk("user/loginUser", async (data) => {
   try {
     const response = await axios.post(
-      `http://localhost:4040/api/v1/auth/login`,
+      `${baseUrl}/auth/login`,
       data,
       {
         withCredentials: true,
@@ -22,7 +23,7 @@ export const loginUser = createAsyncThunk("user/loginUser", async (data) => {
 export const logOutUser = createAsyncThunk("user/logOutUser", async () => {
   try {
     const response = await axios.post(
-      `http://localhost:4040/api/v1/auth/logout`,
+      `${baseUrl}/auth/logout`,
       "",
       {
         withCredentials: true,
@@ -41,7 +42,7 @@ export const processRegister = createAsyncThunk(
   async (form_data) => {
     try {
       const response = await axios.post(
-        `http://localhost:4040/api/v1/auth/process-register`,
+        `${baseUrl}/auth/process-register`,
         form_data,
         {
           withCredentials: true,
@@ -62,7 +63,7 @@ export const verifyRegisteredUser = createAsyncThunk(
   async (token) => {
     try {
       const response = await axios.post(
-        `http://localhost:4040/api/v1/auth/verify-register`,
+        `${baseUrl}/auth/verify-register`,
         { token },
         {
           withCredentials: true,
@@ -81,7 +82,7 @@ export const loggedInUserInfo = createAsyncThunk(
   "user/loggedInUserInfo",
   async () => {
     try {
-      const response = await axios.get(`http://localhost:4040/api/v1/auth/me`, {
+      const response = await axios.get(`${baseUrl}/auth/me`, {
         withCredentials: true,
       });
 
@@ -98,7 +99,7 @@ export const forgotPasswordRequest = createAsyncThunk(
   async (email) => {
     try {
       const response = await axios.post(
-        `http://localhost:4040/api/v1/auth/forgot-password`,
+        `${baseUrl}/auth/forgot-password`,
         { email },
         {
           withCredentials: true,
@@ -118,7 +119,7 @@ export const resetPassword = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.put(
-        `http://localhost:4040/api/v1/auth/reset-password`,
+        `${baseUrl}/auth/reset-password`,
         data,
         {
           withCredentials: true,
@@ -138,7 +139,7 @@ export const updatePassword = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.put(
-        `http://localhost:4040/api/v1/auth/update-password`,
+        `${baseUrl}/auth/update-password`,
         data,
         {
           withCredentials: true,
@@ -158,7 +159,7 @@ export const updateProfile = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.put(
-        `http://localhost:4040/api/v1/auth/update-profile/${data.id}`,
+        `${baseUrl}/auth/update-profile/${data.id}`,
         data.data
       );
 

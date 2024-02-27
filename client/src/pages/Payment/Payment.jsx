@@ -10,6 +10,7 @@ import {
 } from "@stripe/react-stripe-js";
 import AlertMessage from "../../../utils/AlertMessage";
 import axios from "axios";
+import { baseUrl } from "../../../utils/baseUrl";
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../../features/order/orderApiSlice";
 import { useEffect } from "react";
@@ -62,7 +63,7 @@ const Payment = () => {
 
     try {
       response = await axios.post(
-        "http://localhost:4040/api/v1/payment/process-payment",
+        `${baseUrl}/payment/process-payment`,
         paymentData,
         {
           withCredentials: true,

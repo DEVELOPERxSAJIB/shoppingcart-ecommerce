@@ -12,8 +12,8 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   const { loader } = useSelector((state) => state.auth);
-  const { products } = useSelector((state) => state.productsList);
   const { users } = useSelector((state) => state.usersList);
+  const { products } = useSelector((state) => state.productsList);
   const { orders, totalAmount } = useSelector((state) => state.ordersList);
 
   // Find out of stock products

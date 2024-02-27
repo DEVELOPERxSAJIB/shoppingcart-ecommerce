@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../../utils/baseUrl";
 
 // Get all orders by Admin
 export const getAllOrdersByAdmin = createAsyncThunk(
@@ -7,7 +8,7 @@ export const getAllOrdersByAdmin = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4040/api/v1/order/all-orders`,
+        `${baseUrl}/order/all-orders`,
         {
           withCredentials: true,
         }
@@ -27,7 +28,7 @@ export const orderDetailsByAdmin = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:4040/api/v1/order/get-single-order/${id}`,
+        `${baseUrl}/order/get-single-order/${id}`,
         {
           withCredentials: true,
         }
@@ -47,7 +48,7 @@ export const updateOrderByAdmin = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        `http://localhost:4040/api/v1/order/update-order/${data.id}`, {status : data.status},
+        `${baseUrl}/order/update-order/${data.id}`, {status : data.status},
         {
           withCredentials: true,
         }
@@ -66,7 +67,7 @@ export const deleteOrderByAdmin = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4040/api/v1/order/delete-order/${id}`,
+        `${baseUrl}/order/delete-order/${id}`,
         {
           withCredentials: true,
         }

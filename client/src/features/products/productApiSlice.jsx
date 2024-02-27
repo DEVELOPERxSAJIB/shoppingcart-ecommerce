@@ -1,12 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../../utils/baseUrl";
 
 // get all products
 export const getAllProducts = createAsyncThunk(
   "product/getAllProduct",
   async ({ currentPage, pageSize, keyword, category, priceRange, sort, ratings }) => {
     try {
-      let apiUrl = `http://localhost:4040/api/v1/products?page=${currentPage}&pageSize=${pageSize}`;
+      let apiUrl = `${baseUrl}/products?page=${currentPage}&pageSize=${pageSize}`;
 
       // Append the keyword to the URL if it is present
       if (keyword) {
@@ -52,7 +53,7 @@ export const getSingleProduct = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:4040/api/v1/products/${id}`,
+        `${baseUrl}/products/${id}`,
         {
           withCredentials: true,
         }
@@ -71,7 +72,7 @@ export const createReview = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.put(
-        `http://localhost:4040/api/v1/products/review-product/${data.id}`,
+        `${baseUrl}/products/review-product/${data.id}`,
         data,
         {
           withCredentials: true,

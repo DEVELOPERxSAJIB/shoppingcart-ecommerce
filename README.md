@@ -1,5 +1,22 @@
 ![Ecommerce Web App Logo!](client/assets/logo.png)
 
+## Live Preview
+
+```console
+ https://shopping-cart-client-dun.vercel.app
+```
+**Admin Access**
+```console
+   email : sajibshikder78971@gmail.com
+   password : asdfg
+```
+
+**User Access**
+```console
+   email : expert43developer5@gmail.com
+   password : asdfg
+```
+
 ## Installation or Download Project
 
 Open Terminal (Git Bash)

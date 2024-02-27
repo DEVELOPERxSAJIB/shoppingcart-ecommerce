@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../../utils/baseUrl";
 
 // get all products
 export const createOrder = createAsyncThunk(
@@ -7,7 +8,7 @@ export const createOrder = createAsyncThunk(
   async (order) => {
     try {
       const response = await axios.post(
-        `http://localhost:4040/api/v1/order/create-order`,
+        `${baseUrl}/order/create-order`,
         order,
         {
           withCredentials: true,
@@ -25,7 +26,7 @@ export const createOrder = createAsyncThunk(
 export const myOrders = createAsyncThunk("order/myOrders", async () => {
   try {
     const response = await axios.get(
-      `http://localhost:4040/api/v1/order/my-orders`,
+      `${baseUrl}/order/my-orders`,
       {
         withCredentials: true,
       }
@@ -43,7 +44,7 @@ export const singleOrderDetails = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:4040/api/v1/order/get-single-order/${id}`,
+        `${baseUrl}/order/get-single-order/${id}`,
         {
           withCredentials: true,
         }

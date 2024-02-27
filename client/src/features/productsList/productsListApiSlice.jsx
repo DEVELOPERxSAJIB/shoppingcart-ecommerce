@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../../utils/baseUrl";
 
 // Get all products by admin
 export const getAllProductsByAdmin = createAsyncThunk(
@@ -7,7 +8,7 @@ export const getAllProductsByAdmin = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4040/api/v1/products/admin/get-all-products`,
+        `${baseUrl}/products/admin/get-all-products`,
         {
           withCredentials: true,
         }
@@ -26,7 +27,7 @@ export const getAllProductsByAdmin = createAsyncThunk(
 //   async (id) => {
 //     try {
 //       const response = await axios.get(
-//         `http://localhost:4040/api/v1/products/${id}`,
+//         `${baseUrl}/products/${id}`,
 //         {
 //           withCredentials: true,
 //         }
@@ -45,7 +46,7 @@ export const createProductByAdmin = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(
-        `http://localhost:4040/api/v1/products/create-product`,
+        `${baseUrl}/products/create-product`,
         data,
         {
           withCredentials: true,
@@ -65,7 +66,7 @@ export const updateProductByAdmin = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.put(
-        `http://localhost:4040/api/v1/products/admin/${data.id}`,
+        `${baseUrl}/products/admin/${data.id}`,
         data.data,
         {
           withCredentials: true,
@@ -85,7 +86,7 @@ export const deleteProduct = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:4040/api/v1/products/admin/${id}`,
+        `${baseUrl}/products/admin/${id}`,
         {
           withCredentials: true,
         }
